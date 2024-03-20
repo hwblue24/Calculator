@@ -10,7 +10,7 @@ let result;
 const sum = ((num1, num2) => {
     const screen = document.querySelector('.screen')
     result = num1 + num2
-    return screen.textContent = result
+    return screen.textContent = result.toFixed(2);
 
 });
 
@@ -18,21 +18,21 @@ const sum = ((num1, num2) => {
 const difference = ((num1, num2) => {
     const screen = document.querySelector('.screen')
     result = num1 - num2
-    return screen.textContent = result
+    return screen.textContent = result.toFixed(2);
 });
 
 
 const product = ((num1, num2) => {
     const screen = document.querySelector('.screen') 
     result = num1 * num2
-    return screen.textContent = result 
+    return screen.textContent = result.toFixed(2);
 });
 
 
 const quotient = ((num1, num2) => {
     const screen = document.querySelector('.screen') 
     result = num1/num2
-    return screen.textContent = result 
+    return screen.textContent = result.toFixed(2); 
 });
 //variables for num1, operation and num2 
 
@@ -56,7 +56,7 @@ function operate(num1, num2, operator) {
 const buttonsContainer = document.querySelector('.buttonsContainer');
 
 buttonsContainer.addEventListener('click', (event) => {
-    if (event.target.innerText === 'Clear') {
+    if (event.target.innerText === 'C') {
         const screen = document.querySelector('.screen')
         screen.textContent = undefined;
         num1 = undefined;
