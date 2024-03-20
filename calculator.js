@@ -2,6 +2,7 @@
 let num1;
 let num2;
 let operator;
+let resultOperator;
 let result; 
 
 //Arrow fns handle simple arithmetic
@@ -61,10 +62,18 @@ buttonsContainer.addEventListener('click', (event) => {
         num1 = undefined;
         num2 = undefined;
         operator = undefined;
-        result = undefined; 
-    }else if (event.target.innerText === '=' && num1 !== undefined && num2 !== undefined && operator !==undefined) {
+        result = undefined;
+    }else if (result !==undefined && event.target.innerText >=0){
+        num1 = result
+        operator = resultOperator
+        result = undefined 
+        num2 = event.target.innerText
+        const screen = document.querySelector('.screen')
+        screen.textContent = num2 
+    }else if (event.target.className === 'operators' && num1 !== undefined && num2 !== undefined && operator !==undefined) {
         num1 = Number(num1)
         num2 = Number(num2)
+        resultOperator = event.target.innerText
         return(operate(num1,num2,operator))
     }else if (event.target.className === 'operators') {
         operator = event.target.innerText
