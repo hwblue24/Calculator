@@ -30,9 +30,17 @@ const product = ((num1, num2) => {
 
 
 const quotient = ((num1, num2) => {
-    const screen = document.querySelector('.screen') 
-    result = num1/num2
-    return screen.textContent = result.toFixed(2); 
+    if(num2 === 0) {
+        const screen = document.querySelector('.screen')
+        screen.textContent = 'U R SlOW'
+        result = screen.textContent
+       
+    }else {
+        const screen = document.querySelector('.screen') 
+        result = num1/num2
+        return screen.textContent = result.toFixed(2); 
+    }
+    
 });
 //variables for num1, operation and num2 
 
@@ -56,13 +64,22 @@ function operate(num1, num2, operator) {
 const buttonsContainer = document.querySelector('.buttonsContainer');
 
 buttonsContainer.addEventListener('click', (event) => {
-    if (event.target.innerText === 'C') {
+    if (event.target.innerText>=0 && result === 'U R SlOW') {
+        const screen = document.querySelector('.screen')
+        screen.textContent = event.target.innerText
+        num1 = event.target.innerText
+        num2 = undefined
+        operator = undefined
+        result = undefined
+        resultOperator = undefined
+    }else if (event.target.innerText === 'C') {
         const screen = document.querySelector('.screen')
         screen.textContent = undefined;
-        num1 = undefined;
-        num2 = undefined;
-        operator = undefined;
-        result = undefined;
+        num1 = undefined
+        num2 = undefined
+        operator = undefined
+        result = undefined
+        resultOperator = undefined
     }else if (result !==undefined && event.target.innerText >=0){
         num1 = result
         operator = resultOperator
